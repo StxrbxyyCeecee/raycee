@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tshabalala Raycee | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="light">
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+
+  <div class="app">
+
+    <!-- HERO -->
+    <header class="hero glass">
+      <h1>Developer's Portfolio  </h1> 
+      <div class="video-avatar">
+  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
+</div>
+        <a1>(PappiCeeDeDeveloper)</a1>
+       <p>Shortened about :
+        <br>
+        <br>
+        <a1>(PappiCeeDeDeveloper)</a1> is a developer name that was named after his developing skills
+        specializing in creating Professional Business websites , Business-2-Business SaaS systems and backend systems for  startup businesses including professional businesses and other web-tools projects which he develope for fun as his hobby.
+      
+
+      <div class="buttons">
+        <button class="btn primary" onclick="location.href='#projects'">View Work</button>
+              </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="section glass">
+      <h2>About Me</h2>
+      <p>
+        I specialise in building high-performance websites, secure backend APIs,
+        and scalable hosting solutions. My work blends clean design, strong
+        engineering, and business-focused thinking.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2>Languages</h2>
+      <div class="grid">
+        <div class="pill glass">HTML</div>
+        <div class="pill glass">CSS</div>
+        <div class="pill glass">JavaScript</div>
+        <div class="pill glass">React</div>
+        <div class="pill glass">Node.js</div>
+        <div class="pill glass">C# / .NET</div>
+        <div class="pill glass">SQL</div>
+        <div class="pill glass">Python</div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="pill glass">B2B SaaS systems</div>
+        <div class="pill glass">Business - Websites</div>
+        <div class="pill glass">Web - Tools</div>
+        <div class="pill glass">Web Offline - mini games</div>
+        <div class="pill glass">Automative tools</div>
+        <div class="pill glass">Business - Backends</div>
+        <div class="pill glass">Web - Hosting</div>
+        <div class="pill glass">API - Development</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2> Projects - Preview </h2>
+      <div class="projects">
+
+          <h3>Business Website Platform</h3>
+          <p>Full business website with admin dashboard, payments, and hosting.</p>
+        </div>
+
+        <div class="card glass">
+          <h3>Backend API System</h3>
+                  <div class="card glass">
+              <div class="about-profile">
+      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
+    </div>
+          <p>Secure REST API with authentication and database integration.</p>
+        </div>
+
+        <div class="card glass">
+          <a1>Web Tools</a1>
+                  <div class="card glass">
+              <div class="about-profile">
+      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
+    </div>
+          <p>QR generators, automation tools, and productivity utilities.</p>
+        </div>
+      </div>
+     
+     
+       <br>
+
+          <!-- CONTACT -->
+    <section class="contact-card glass" id="contact">
+      <h2>Let’s Work Together</h2>
+      <p>Have a project or idea? Let’s create something professional.</p>
+      <a href="mailto:rayceeblaccreedtshabalala@gmail.com">
+        <button class="btn primary">Email Me</button>
+      </a>
+    </section>
+
+      <div class="buttons">
+        <button class="btn outline" onclick="location.href='socialmedias.html'">Social Medias</button>
+
+        <button class="btn primary" onclick="location.href='aboutme.html'">More about me? </button>
+      </div>
+    </header>
+
+
+    </section>
+
+  <section class="about-section" id="about">
+  <div class="about-container">
+
+    <!-- Profile Card -->
+    <div class="about-profile">
+      <strong><a>THE END.</a></strong>
+    </div>
+
+
+
+
+  </div>
+</section>
+
+
+    <footer>
+      © <span id="year"></span> Tshabalala Raycee
+    </footer>
+
+  </div>
+
+  <script>
+    const body = document.body;
+    const toggleBtn = document.querySelector(".theme-toggle");
+
+    function toggleTheme() {
+      body.classList.toggle("dark");
+      body.classList.toggle("light");
+      toggleBtn.textContent =
+        body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
