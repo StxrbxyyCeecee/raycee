@@ -4,21 +4,9 @@
   <meta charset="UTF-8" />
   <title>Tshabalala Raycee | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-</head>
-
-<body class="light">
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
- <div class="aura-bg">
-  <div class="app">
-
-    <body>
-
-  <!-- ADDED: NAVY BLUR AURA BACKGROUND -->
-  <div class="aura-bg"></div>
 
   <style>
     :root {
@@ -42,10 +30,9 @@
       width: 100%;
       height: 100%;
       background: #050b18;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* Main aura background */
     .aura-bg {
       position: fixed;
       inset: -20%;
@@ -58,129 +45,45 @@
       z-index: -1;
     }
 
-    /* Water-like movement */
     @keyframes flow {
-      0% {
-        transform: translate(0%, 0%) scale(1);
-      }
-      50% {
-        transform: translate(-5%, -3%) scale(1.05);
-      }
-      100% {
-        transform: translate(4%, 3%) scale(1.1);
-      }
+      0% { transform: translate(0%, 0%) scale(1); }
+      50% { transform: translate(-5%, -3%) scale(1.05); }
+      100% { transform: translate(4%, 3%) scale(1.1); }
     }
-
-    /* LIGHT THEME */
-    body.light {
-      background: linear-gradient(180deg, #ffffff, #eef2f7);
-      color: #0f172a;
-    }
-
-    /* DARK THEME */
-    body.dark {
-      background: radial-gradient(circle at top, #020617, #0b1020);
-      color: #e5e7eb;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a1 {
-      color: inherit;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .app {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-      display: grid;
-      gap: 90px;
-    }
-
-    .glass {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    body.dark .glass {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .theme-toggle {
-      color: inherit;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: none;
-      border: 1px solid currentColor;
-      cursor: pointer;
-      font-size: 14px;
-      z-index: 10;
-    }
-
-    .hero {
-      display: grid;
-      gap: 30px;
-      justify-items: center;
-      text-align: center;
-      padding: 80px 30px;
-      animation: fadeUp 1s ease;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-    }
-
-    .hero h1 {
-      color:#2563eb;
-      font-size: clamp(42px, 6vw, 58px);
-      letter-spacing: -1px;
-    }
-
-    .hero p {
-      max-width: 680px;
-      opacity: 0.85;
-      font-size: 17px;
-    }
-
-    /* (REST OF YOUR CODE CONTINUES — UNCHANGED) */
-
   </style>
+</head>
 
-</body>
+<body class="dark">
 
-     
+  <!-- AURA BACKGROUND -->
+  <div class="aura-bg"></div>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+
+  <div class="app">
+
     <!-- HERO -->
     <header class="hero glass">
-      <h1>Developer's Portfolio  </h1> 
+      <h1>Developer's Portfolio</h1>
+
       <div class="video-avatar">
-  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
-</div>
-        <a1>(Raycee Tshabalala)</a1>
-       <p>
-        <br>
-        <br>
-        <a1>Raycee Tshabalala</a1> is a young developer who goes by a name <strong>PappiCeeDeDeveloper</strong> that was named after his developing skills using it on multiple a social media and 
-        specializing in creating Professional Business websites , Business-2-Business SaaS systems and backend systems for  startup businesses including professional businesses and other web-tools projects which he develope for fun as his hobby.
+        <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
+      </div>
+
+      <a1>(Raycee Tshabalala)</a1>
+
+      <p>
+        <br><br>
+        <a1>Raycee Tshabalala</a1> is a young developer who goes by
+        <strong>PappiCeeDeDeveloper</strong>, specializing in Professional Business websites,
+        B2B SaaS systems, backend systems, and web tools.
+      </p>
+
       <div class="buttons">
         <button class="btn primary" onclick="location.href='#projects'">View Work</button>
-              </div>
+      </div>
     </header>
+
     <!-- SKILLS -->
     <section class="section">
       <h2>Languages</h2>
@@ -195,46 +98,8 @@
         <div class="pill glass">Python</div>
       </div>
     </section>
-    <section class="section">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="pill glass">B2B SaaS systems</div>
-        <div class="pill glass">Business - Websites</div>
-        <div class="pill glass">Web - Tools</div>
-        <div class="pill glass">Web Offline - mini games</div>
-        <div class="pill glass">Automative tools</div>
-        <div class="pill glass">Business - Backends</div>
-        <div class="pill glass">Web - Hosting</div>
-        <div class="pill glass">API - Development</div>
-      </div>
-    </section>
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <h2> Projects - Preview </h2>
-      <div class="projects">
 
-          <h3>Business Website Platform</h3>
-          <p>Full business website with admin dashboard, payments, and hosting.</p>
-        </div>
-        <div class="card glass">
-          <h3>Backend API System</h3>
-                  <div class="card glass">
-              <div class="about-profile">
-      <img src="Developer Portfolio my_html_c8b341a4c0f21042.png" alt="Profile Picture">
-    </div>
-          <p>Secure REST API with authentication and database integration.</p>
-        </div>
-
-        <div class="card glass">
-          <a1>Web Tools</a1>
-                  <div class="card glass">
-              <div class="about-profile">
-      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
-    </div>
-          <p>QR generators, automation tools, and productivity utilities.</p>
-        </div>
-      </div>
-          <!-- CONTACT -->
+    <!-- CONTACT -->
     <section class="contact-card glass" id="contact">
       <h2>Let’s Work Together</h2>
       <p>Have a project or idea? Let’s create something professional.</p>
@@ -243,30 +108,11 @@
       </a>
     </section>
 
-      <div class="buttons">
-        <button class="btn outline" onclick="location.href='socialmedias.html'">Social Medias</button>
-
-        <button class="btn primary" onclick="location.href='aboutme.html'">More about me? </button>
-      </div>
-    </header>
-    </section>
-  <section class="about-section" id="about">
-  <div class="about-container">
-
-    <!-- Profile Card -->
-    <div class="about-profile">
-      <strong><a>THE END.</a></strong>
-    </div>
-  </div>
-</section>
-
-
     <footer>
       © <span id="year"></span> Tshabalala Raycee
     </footer>
 
   </div>
- </div>
 
   <script>
     const body = document.body;
@@ -281,8 +127,11 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
+
+
 
 
 
