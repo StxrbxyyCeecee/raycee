@@ -41,7 +41,20 @@
       © <span id="year"></span> Tshabalala Raycee
     </footer>
     </div>
-        
+      <script>
+    const body = document.body;
+    const toggleBtn = document.querySelector(".theme-toggle");
+
+    function toggleTheme() {
+      body.classList.toggle("dark");
+      body.classList.toggle("light");
+      toggleBtn.textContent =
+        body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>    
 </body>
 
 </html>
+
