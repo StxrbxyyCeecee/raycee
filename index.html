@@ -4,85 +4,45 @@
   <meta charset="UTF-8" />
   <title>Tshabalala Raycee | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --accent: #2563eb;
-      --radius: 20px;
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
-    }
-
-    body {
-      transition: background 0.5s ease, color 0.5s ease;
-      line-height: 1.65;
-    }
-
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      background: #050b18;
-      overflow-x: hidden;
-    }
-
-    .aura-bg {
-      position: fixed;
-      inset: -20%;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(40, 90, 200, 0.45), transparent 50%),
-        radial-gradient(circle at 80% 40%, rgba(10, 40, 120, 0.55), transparent 55%),
-        radial-gradient(circle at 50% 70%, rgba(20, 60, 160, 0.45), transparent 60%);
-      filter: blur(80px);
-      animation: flow 18s ease-in-out infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes flow {
-      0% { transform: translate(0%, 0%) scale(1); }
-      50% { transform: translate(-5%, -3%) scale(1.05); }
-      100% { transform: translate(4%, 3%) scale(1.1); }
-    }
-  </style>
 </head>
 
-<body class="dark">
-
-  <!-- AURA BACKGROUND -->
-  <div class="aura-bg"></div>
-
+<body class="light">
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
 
   <div class="app">
 
     <!-- HERO -->
     <header class="hero glass">
-      <h1>Developer's Portfolio</h1>
-
+      <h1>Developer's Portfolio  </h1> 
       <div class="video-avatar">
-        <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
-      </div>
-
-      <a1>(Raycee Tshabalala)</a1>
-
-      <p>
-        <br><br>
-        <a1>Raycee Tshabalala</a1> is a young developer who goes by
-        <strong>PappiCeeDeDeveloper</strong>, specializing in Professional Business websites,
-        B2B SaaS systems, backend systems, and web tools.
-      </p>
+  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
+</div>
+        <a1>(PappiCeeDeDeveloper)</a1>
+       <p>Shortened about :
+        <br>
+        <br>
+        <a1>(PappiCeeDeDeveloper)</a1> is a developer name that was named after his developing skills
+        specializing in creating Professional Business websites , Business-2-Business SaaS systems and backend systems for  startup businesses including professional businesses and other web-tools projects which he develope for fun as his hobby.
+      
 
       <div class="buttons">
         <button class="btn primary" onclick="location.href='#projects'">View Work</button>
-      </div>
+              </div>
     </header>
+
+    <!-- ABOUT -->
+    <section class="section glass">
+      <h2>About Me</h2>
+      <p>
+        I specialise in building high-performance websites, secure backend APIs,
+        and scalable hosting solutions. My work blends clean design, strong
+        engineering, and business-focused thinking.
+      </p>
+    </section>
 
     <!-- SKILLS -->
     <section class="section">
@@ -98,8 +58,52 @@
         <div class="pill glass">Python</div>
       </div>
     </section>
+    <section class="section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="pill glass">B2B SaaS systems</div>
+        <div class="pill glass">Business - Websites</div>
+        <div class="pill glass">Web - Tools</div>
+        <div class="pill glass">Web Offline - mini games</div>
+        <div class="pill glass">Automative tools</div>
+        <div class="pill glass">Business - Backends</div>
+        <div class="pill glass">Web - Hosting</div>
+        <div class="pill glass">API - Development</div>
+      </div>
+    </section>
 
-    <!-- CONTACT -->
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2> Projects - Preview </h2>
+      <div class="projects">
+
+          <h3>Business Website Platform</h3>
+          <p>Full business website with admin dashboard, payments, and hosting.</p>
+        </div>
+
+        <div class="card glass">
+          <h3>Backend API System</h3>
+                  <div class="card glass">
+              <div class="about-profile">
+      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
+    </div>
+          <p>Secure REST API with authentication and database integration.</p>
+        </div>
+
+        <div class="card glass">
+          <a1>Web Tools</a1>
+                  <div class="card glass">
+              <div class="about-profile">
+      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
+    </div>
+          <p>QR generators, automation tools, and productivity utilities.</p>
+        </div>
+      </div>
+     
+     
+       <br>
+
+          <!-- CONTACT -->
     <section class="contact-card glass" id="contact">
       <h2>Let’s Work Together</h2>
       <p>Have a project or idea? Let’s create something professional.</p>
@@ -107,6 +111,31 @@
         <button class="btn primary">Email Me</button>
       </a>
     </section>
+
+      <div class="buttons">
+        <button class="btn outline" onclick="location.href='socialmedias.html'">Social Medias</button>
+
+        <button class="btn primary" onclick="location.href='aboutme.html'">More about me? </button>
+      </div>
+    </header>
+
+
+    </section>
+
+  <section class="about-section" id="about">
+  <div class="about-container">
+
+    <!-- Profile Card -->
+    <div class="about-profile">
+      <strong><a>THE END.</a></strong>
+    </div>
+
+
+
+
+  </div>
+</section>
+
 
     <footer>
       © <span id="year"></span> Tshabalala Raycee
@@ -127,9 +156,9 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
+
 
 
 
