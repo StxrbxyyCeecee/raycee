@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> Portfolio | Tshabalala Raycee </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --glass-bg: rgba(255,255,255,0.06);
+            --accent: #1e90ff; /* blue button */
+            --text: rgba(255,255,255,0.95);
+            --muted: rgba(255,255,255,0.75);
+        }
+
+        body{
+            height:100%;
+            margin:0;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: #525252ad;
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* animated deep-sea aura with floating color blobs */
+        .bg {
+            position:fixed;
+            inset:0;
+            overflow:hidden;
+            z-index:0;
+            background:
+    radial-gradient(1100px 650px at 15% 20%, rgba(255,255,255,0.7), transparent 14%),
+    radial-gradient(900px 700px at 85% 80%, rgba(180,180,180,0.55), transparent 12%),
+    radial-gradient(600px 400px at 40% 95%, rgba(220,220,220,0.4), transparent 16%);
+        }
+
+.logo {
+  width:90px;
+  height: 90px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight:900;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00e5ff, #3700ff, #02bac7, #00d9ff);
+  background-size: 400% 400%;
+  color: #ffffff;
+  text-shadow:
+    0 0 12px #000000cc,
+    0 0 30px #ececec5b;
+  animation: pulseGlow 4s infinite;
+  box-shadow:
+    0 0 12px rgba(0,229,255,0.6),
+    0 0 30px rgba(76, 0, 255, 0.6);
+}
+/* Animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 12px rgba(0,229,255,0.6),
+      0 0 30px rgba(4, 0, 255, 0.6)
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgb(153, 0, 255),
+      0 0 55px rgb(25, 0, 255);
+  }
+  100% {
+    box-shadow:
+      0 0 12px rgba(98, 0, 255, 0.6),
+      0 0 30px rgba(25, 0, 255, 0.6);
+  }
+}
+        .blob{
+            position:absolute;
+            border-radius:50%;
+            filter: blur(90px);
+            opacity:0.9;
+            mix-blend-mode: screen;
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            animation: float 5s ease-in-out infinite;
+        }
+        .b1{
+            width:520px;height:520px;
+            left:-10%;
+            top:10%;
+            background: linear-gradient(135deg, #ffffff21, #d42c0e1f);
+            animation-duration: 9s;
+        }
+        .b2{
+            width:420px;height:420px;
+            right:-8%;
+            top:30%;
+            background: linear-gradient(120deg, #000000, #290e0271);
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+        .b3{
+            width:360px;height:360px;
+            left:20%;
+            bottom:-10%;
+            background: linear-gradient(90deg, #ffffff5d, #ffffff);
+            animation-duration: 11s;
+            animation-delay: 4s;
+        }
+        @keyframes float{
+            0%{ transform: translateY(0) translateX(0) scale(1); }
+            50%{ transform: translateY(-30px) translateX(20px) scale(1.03); }
+            100%{ transform: translateY(0) translateX(0) scale(1); }
+        }
+
+        /* center glass card */
+        .wrap{
+            position:relative;
+            z-index:2;
+            min-height:100vh;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 0 100px 0;
+            gap: 30px;
+            box-sizing:border-box;
+        }
+        .glass{
+            width:min(999px, 99%);
+            background: var(--glass-bg);
+            border-radius:18px;
+            padding: 100px;
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+            align-items:center;
+            text-align:center;
+            box-shadow: 0 8px 30px rgba(2,8,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px) saturate(120%);
+            -webkit-backdrop-filter: blur(10px) saturate(120%);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1{
+            margin:0;
+            font-size: clamp(40px, 7vw, 72px);
+            letter-spacing: 0.6px;
+            font-weight:300;
+            font-family: 'Times New Roman', Times, serif;
+            color:var(--text);
+            text-shadow: 8px 60px 90px #0a1e3c;
+            text-decoration-color:blue;
+            text-decoration: overline;
+        }
+        h2{
+            margin:0;
+            font-size: clamp(14px, 2.1vw, 18px);
+            font-weight:600;
+           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color:var(--muted);
+        }
+
+        h3{
+            margin:0;
+            letter-spacing: 1.9px;
+            font-weight:900;
+            color:var(--text);
+            text-shadow: 0 6px 30px rgba(10,30,60,0.45);
+            color: #ffffff;
+            
+        }
+
+        .cta{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            margin-top:8px;
+            padding:12px 22px;
+            border-radius:12px;
+           background:linear-gradient(180deg,#cccccc,#474747);
+            color:white;
+            text-decoration:none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight:600;
+            box-shadow: 0 8px 24px rgba(39, 39, 39, 0.28);
+            transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+        }
+        .cta:hover{ transform: translateY(-4px);
+             box-shadow: 0 14px 36px #2b2b2b75; }
+        .cta:active{ transform: translateY(-1px); }
+
+        /* small subtle footer / hint */
+        .meta{
+            margin-top:8px;
+            font-size:12px;
+            color:rgba(255,255,255,0.55);
+        }
+
+        /* VIDEO AVATAR */
+.video-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 20px 50px rgba(17, 80, 214, 0.48);
+ }
+
+.video-avatar video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+        /* footer glass (new) */
+        footer.site-footer{
+            position:fixed;
+            left:50%;
+            bottom:0px;
+            transform:translateX(-50%);
+            z-index:3;
+            width:min(920px, 94%);
+            max-width:1100px;
+            background: var(--glass-bg);
+            padding:12px 18px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            box-shadow: 0 8px 24px rgba(2,8,23,0.6);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px) saturate(120%);
+            -webkit-backdrop-filter: blur(8px) saturate(120%);
+            color: rgba(255,255,255,0.72);
+            font-size:13px;
+            gap:8px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
+        footer.site-footer p{
+            margin:0;
+            text-align:center;
+            line-height:3.2;
+        }
+        @media (max-width:520px){
+            footer.site-footer{ bottom:14px; padding:10px 12px; font-size:12px; width:calc(100% - 28px); }
+            .glass{ padding:28px;
+                 border-radius:14px;
+                 }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+    </div>
+
+    <div class="wrap">
+        <section class="glass" role="region" aria-labelledby="site-title">
+      <div class="video-avatar">
+  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
+</div>
+
+      <p>
+        Hey , Im Tshabalala Raycee , I specialise in building high-performance websites, secure backend APIs,
+        and scalable hosting solutions. My work blends clean design, strong
+        engineering, and business-focused thinking.
+      </p>
+           </section>
+
+    <!-- ABOUT -->
+    <section class="glass">
+      <h2>About Me</h2>
+      <p>
+        As a passionate developer, I specialize in turning complex ideas into elegant digital experiences. My expertise covers a wide range, including responsive business websites, scalable B2B SaaS platforms, and robust backend systems. Driven by a love for coding, I also enjoy exploring creative projects like AI-powered tools and interactive web games. I am always looking for opportunities to collaborate on innovative and challenging work.
+      </p>
+    </section>
+
+          <!-- CONTACT -->
+    <section class="contact-card glass" id="contact">
+      <h2>Let’s Work Together</h2>
+      <p>Have a project or idea? Let’s create something professional? </p>
+      <a href="mailto:rayceeblaccreedtshabalala@gmail.com">
+        <button class="cta">Contact Me</button> 
+      </a>
+    </section>
+
+    <!-- Profile Card -->
+    <div class="about-profile glass" style="padding: 20px; width: auto; min-width: 200px;">
+      <strong><a>THE END.</a></strong>
+    </div>
+    </div>
+    
+    <footer>
+      &copy; 2026 ROASOD-Websites.
+    </footer>
+</body>
+</html>

@@ -1,222 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tshabalala Raycee | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> Portfolio - Landing-Page  </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --glass-bg: #525252ad;
+            --accent: #1e90ff; /* blue button */
+            --text: rgba(255,255,255,0.95);
+            --muted: rgba(255,255,255,0.75);
+        }
 
 
+                body,html{
+            position:fixed;
+            inset:0%;
+            overflow-y:auto;
+            background: var(--glass-bg);
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+            align-items:center;
+            box-shadow: 0 8px 30px rgba(2,8,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px) saturate(120%);
+            -webkit-backdrop-filter: blur(10px) saturate(120%);
+        }
+
+.logo {
+  width:90px;
+  height: 90px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight:900;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00e5ff, grey, white, #00d9ff);
+  background-size: 400% 400%;
+  color: #ffffff;
+  text-shadow:
+    0 0 12px #000000cc,
+    0 0 30px #ececec5b;
+  animation: pulseGlow 4s infinite;
+  box-shadow:
+    0 0 12px #969696,
+    0 0 30px rgba(28, 2, 87, 0.6);
+}
+/* Animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 12px #969696,
+      0 0 30px rgba(4, 2, 100, 0.6)
+  }
+  50% {
+    box-shadow:
+      0 0 22px #969696,
+      0 0 55px rgb(11, 2, 95);
+  }
+  100% {
+    box-shadow:
+      0 0 12px #969696,
+      0 0 30px rgba(9, 1, 78, 0.6);
+  }
+}
+        .blob{
+            position:absolute;
+            border-radius:50%;
+            filter: blur(90px);
+            opacity:0.9;
+            mix-blend-mode: screen;
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            animation: float 10s ease-in-out infinite;
+        }
+        .b1{
+            width:520px;height:520px;
+            left:-10%;
+            top:10%;
+            background: linear-gradient(135deg, #ffffff21, #d42c0e1f);
+            animation-duration: 18s;
+        }
+        .b2{
+            width:420px;height:420px;
+            right:-8%;
+            top:30%;
+            background: linear-gradient(120deg, #000000, #290e0271);
+            animation-duration: 14s;
+            animation-delay: 2s;
+        }
+        .b3{
+            width:360px;height:360px;
+            left:20%;
+            bottom:-10%;
+            background: linear-gradient(90deg, #ffffff5d, #ffffff);
+            animation-duration: 22s;
+            animation-delay: 4s;
+        }
+        @keyframes float{
+            0%{ transform: translateY(0) translateX(0) scale(1); }
+            50%{ transform: translateY(-30px) translateX(20px) scale(1.03); }
+            100%{ transform: translateY(0) translateX(0) scale(1); }
+        }
+
+
+
+        h1{
+            margin:0;
+            font-size: clamp(40px, 7vw, 72px);
+            letter-spacing: 0.6px;
+            font-weight:300;
+            font-family: 'Times New Roman', Times, serif;
+            color:var(--text);
+            text-shadow: 8px 60px 90px #0a1e3c;
+            text-decoration-color:blue;
+            text-decoration: overline;
+        }
+        h2{
+            margin:0;
+            font-size: clamp(14px, 2.1vw, 18px);
+            font-weight:600;
+           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color:var(--muted);
+        }
+
+        h3{
+            margin:0;
+            letter-spacing: 1.9px;
+            font-weight:900;
+            color:var(--text);
+            text-shadow: 0 6px 30px rgba(10,30,60,0.45);
+            color: #ffffff;
+            
+        }
+
+        .cta{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            margin-top:8px;
+            padding:12px 22px;
+            border-radius:12px;
+           background:linear-gradient(180deg,#cccccc,#474747);
+            color:white;
+            text-decoration:none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight:600;
+            box-shadow: 0 8px 24px rgba(39, 39, 39, 0.28);
+            transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+        }
+        .cta:hover{ transform: translateY(-4px);
+             box-shadow: 0 14px 36px #2b2b2b75; }
+        .cta:active{ transform: translateY(-1px); }
+
+        /* small subtle footer / hint */
+        .meta{
+            margin-top:8px;
+            font-size:12px;
+            color:rgba(255,255,255,0.55);
+        }
+        .site-footer p{
+  text-align: center;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  }
+    </style>
 </head>
+<body>
 
-<body class="light">
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
-
-  <div class="app">
-
-    <!-- HERO -->
-    <header class="hero glass">
-      <h1>Developer's Portfolio  </h1> 
-      <div class="video-avatar">
-  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
-</div>
-        <a1>(Tshabalala Raycee)</a1>
-       <p>
-        <br>
-        <br>
-        <a1>(Tshabalala Raycee)</a1> is a developer who has a big dream in developing while <strong>(PappiCeeDeDeveloper)</strong>strong> is a developing username which took place after his developing skills specializing in creating Professional Business websites , Business-2-Business SaaS systems and backend systems for  startup businesses including professional businesses and other web-tools projects which he develope for fun as his hobby.
-        <p>
-        I Tshabalala Raycee specialise in building high-performance websites, secure backend APIs, and scalable hosting solutions. My work blends clean design, strong engineering, and business-focused thinking.
-      </p>
-    </header>
-    <!-- SKILLS -->
-    <section class="section">
-      <h2>Languages</h2>
-      <div class="grid">
-        <div class="pill glass">HTML</div>
-        <div class="pill glass">CSS</div>
-        <div class="pill glass">JavaScript</div>
-        <div class="pill glass">React</div>
-        <div class="pill glass">Node.js</div>
-        <div class="pill glass">C# / .NET</div>
-        <div class="pill glass">SQL</div>
-        <div class="pill glass">Python</div>
-      </div>
-    </section>
-    <section class="section">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="pill glass">B2B SaaS systems</div>
-        <div class="pill glass">Business - Websites</div>
-        <div class="pill glass">Web - Tools</div>
-        <div class="pill glass">Web Offline - mini games</div>
-        <div class="pill glass">Automative tools</div>
-        <div class="pill glass">Business - Backends</div>
-        <div class="pill glass">Web - Hosting</div>
-        <div class="pill glass">API - Development</div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <a1> Projects - Preview </a1>
-    
-        <div class="card glass">
-          
-          <section class="section" id="projects">
-      <div class="projects">
-          <a1>Backend API System</a1>
-          <h3>Full business website with admin dashboard, payments, and hosting.</h3>
-       </div>
-                  <div class="card glass">
-              <div class="about-profile">
-      <img src="Developer Portfolio my_html_c8b341a4c0f21042.png" alt="Profile Picture">
-      </div>
-          <p>Secure REST API with authentication and database integration.</p>
-      </div>
-        </div>
-        <div class="card glass">
-          <a1>Web Tools</a1>
-                  <div class="card glass">
-              <div class="about-profile">
-      <img src="Developer Portfolio my_html_3ddaead0a5a12be9.png" alt="Profile Picture">
-    </div>
-          <p>QR generators, automation tools, and productivity utilities.</p>
-        </div>
-      </div>
-          <!-- CONTACT -->
-    <section class="contact-card glass" id="contact">
-      <h2>Let’s Work Together</h2>
-      <p>Have a project or idea? Let’s create something professional.</p>
-      <p>Feel honored and welcomed in Donating and supporting me on anything related <strong>Luke 6:38</strong>  🙂  </p>
-      <a href="mailto:rayceeblaccreedtshabalala@gmail.com">
-        <button class="btn primary">Email Me</button>
-      </a>
-    </section>
-
-      <div class="buttons">
-        <button class="btn outline" onclick="location.href='socialmedias.html'">Social Medias</button>
-
-        <button class="btn primary" onclick="location.href='aboutme.html'">More about me? </button>
-      </div>
-    </header>
-
-
-    </section>
-
-  <section class="about-section" id="about">
-  <div class="about-container">
-
-    <!-- Profile Card -->
-    <div class="about-profile">
-      <strong><a>THE END.</a></strong>
+    <div class="bg" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
     </div>
 
+    <main style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+  <nav class="nav">
+    <h2 class="logo">Paρρi_Ceecee</h2>
+  </nav>
 
+            <div style="text-align: center;">
+            <h3>Welcome to my Portfolio</h3>
+            <h1 id="site-title"> Tshabalala Raycee</h1>
+            </div>
+            
+            <a class="cta" href="portfolio.html" title="Learn more about ROASOD">Discover</a>    
+    </main>
 
-
-  </div>
-</section>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Developer</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body class="light">
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
-
-   <div class="app">
-
-    <!-- HERO -->
-    <header class="hero glass">
-      <h1>About - Developer   </h1> 
-      <div class="video-avatar">
-  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
-
-    </div>
-       <a1>Tshabalala Raycee</a1>About Developer
-    
-
-       <p>About Me
-
-Tshabalala Raycee is a driven Web & Backend Developer with a strong vision for building technology-powered businesses. More than just a developer, he is a business-minded problem solver focused on creating digital solutions that help brands grow, scale, and operate efficiently.
-
-Raycee began his coding journey at the age of 16, choosing to invest early in his skills rather than wait for opportunity to find him. This early start shaped his disciplined mindset, technical curiosity, and long-term ambition to become a business-owning developer—someone who not only builds systems, but understands the strategy behind them.
-
-Operating under the developer alias PappiCeeDeDeveloper, Raycee specializes in crafting modern websites, backend systems, and scalable business tools. His work blends clean design, performance, and security, with a strong focus on real-world business needs. What began as a passion quickly evolved into a professional pursuit, driven by continuous learning and hands-on project development.
-
-This portfolio represents Raycee’s commitment to excellence and growth. It showcases his ability to design, develop, and deploy professional web solutions, including business websites, hosting systems, and custom tools tailored for clients and entrepreneurs.
-
-      </p>
-
-
-       Developer | Business Owner — ROASOD <br>
-</header>
-
-        <footer>
-      © <span id="year"></span> Tshabalala Raycee
+    <footer class="site-footer" style="position: fixed; bottom: 0; width: 100%; z-index: 3;">
+        <p>&copy; 2026 ROASOD-Websites.</p>
     </footer>
-    </div>
-      <script>
-    const body = document.body;
-    const toggleBtn = document.querySelector(".theme-toggle");
-
-    function toggleTheme() {
-      body.classList.toggle("dark");
-      body.classList.toggle("light");
-      toggleBtn.textContent =
-        body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>    
-</body>
-
-</html>
-
-  </div>
-
-  <script>
-    const body = document.body;
-    const toggleBtn = document.querySelector(".theme-toggle");
-
-    function toggleTheme() {
-      body.classList.toggle("dark");
-      body.classList.toggle("light");
-      toggleBtn.textContent =
-        body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
