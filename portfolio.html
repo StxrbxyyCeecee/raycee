@@ -4,21 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> Portfolio | Tshabalala Raycee </title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="ROASOD.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root{
             --glass-bg: rgba(255,255,255,0.06);
-            --accent: #1e90ff; /* blue button */
+            --accent: #00e5ff;
             --text: rgba(255,255,255,0.95);
+            --card-bg: rgba(255, 255, 255, 0.03);
             --muted: rgba(255,255,255,0.75);
+        }
+
+        /* Hide scrollbars */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+        
+        * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         body{
             height:100%;
             margin:0;
             font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
             background: #525252ad;
             color:var(--text);
+            cursor: none;
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
         }
@@ -37,6 +52,7 @@
 
 .logo {
   width:90px;
+  min-width: 90px;
   height: 90px;
   font-size: 20px;
   letter-spacing: 3px;
@@ -83,35 +99,36 @@
             mix-blend-mode: screen;
             transform: translate3d(0,0,0);
             will-change: transform;
+            --parallax-y: 0px;
             animation: float 5s ease-in-out infinite;
+            pointer-events: none;
         }
         .b1{
             width:520px;height:520px;
             left:-10%;
             top:10%;
             background: linear-gradient(135deg, #ffffff21, #d42c0e1f);
-            animation-duration: 9s;
+            animation-duration:30s;
         }
         .b2{
             width:420px;height:420px;
             right:-8%;
             top:30%;
             background: linear-gradient(120deg, #000000, #290e0271);
-            animation-duration: 7s;
-            animation-delay: 2s;
+            animation-duration: 20s;
         }
         .b3{
             width:360px;height:360px;
             left:20%;
             bottom:-10%;
             background: linear-gradient(90deg, #ffffff5d, #ffffff);
-            animation-duration: 11s;
+            animation-duration: 30s;
             animation-delay: 4s;
         }
         @keyframes float{
-            0%{ transform: translateY(0) translateX(0) scale(1); }
-            50%{ transform: translateY(-30px) translateX(20px) scale(1.03); }
-            100%{ transform: translateY(0) translateX(0) scale(1); }
+            0%{ transform: translate3d(0, var(--parallax-y), 0) scale(1); }
+            50%{ transform: translate3d(20px, calc(var(--parallax-y) - 30px), 0) scale(1.03); }
+            100%{ transform: translate3d(0, var(--parallax-y), 0) scale(1); }
         }
 
         /* center glass card */
@@ -123,38 +140,268 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 40px 0 100px 0;
-            gap: 30px;
+            padding: 150px 20px 100px 20px;
+            gap: 100px;
             box-sizing:border-box;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         .glass{
-            width:min(999px, 99%);
+            width: 100%;
             background: var(--glass-bg);
             border-radius:18px;
-            padding: 100px;
+            padding: 60px 40px;
             display:flex;
             flex-direction:column;
             gap:18px;
             align-items:center;
+            justify-content: center;
             text-align:center;
+            min-height: 70vh;
             box-shadow: 0 8px 30px rgba(2,8,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.06);
             backdrop-filter: blur(10px) saturate(120%);
             -webkit-backdrop-filter: blur(10px) saturate(120%);
             position: relative;
             z-index: 1;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* New Features: Nav & Grids */
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(90%, 1100px);
+            z-index: 100;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            animation: navFadeIn 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes navFadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600; opacity: 0.7; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle .bar {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Nav Overlay */
+        #nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #nav-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            flex: 1 1 150px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .skill-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            border-color: var(--accent);
+        }
+        .skill-item i { font-size: 24px; color: var(--accent); margin-bottom: 10px; display: block; }
+
+        /* Custom Magnetic Cursor */
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+            will-change: transform;
+        }
+        #cursor.active {
+            width: 60px;
+            height: 60px;
+            opacity: 0.5;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+        }
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 229, 255, 0.5); }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #111;
+            z-index: 100000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .loader-content { width: 200px; text-align: center; }
+        .progress-bar-wrap {
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            margin-top: 20px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        #progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px var(--accent);
+        }
+        #progress-text { margin-top: 10px; font-size: 10px; letter-spacing: 2px; color: var(--muted); }
+
+        @media (max-width: 768px) {
+            #cursor { display: none; }
+            .bg { filter: brightness(0.7); }
+            body { cursor: auto; }
+            .wrap { padding: 100px 15px 50px 15px; gap: 40px; }
+            .glass { padding: 30px 20px; min-height: auto; }
+            .top-nav .logo { width: 50px; height: 50px; font-size: 10px; }
+            .top-nav { padding: 5px 15px; width: 95%; }
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 12px; }
+            .blob { filter: blur(50px); opacity: 0.6; }
+            .b1 { width: 250px; height: 250px; }
+
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(30, 30, 30, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                border-radius: 15px;
+                width: 150px;
+                text-align: right;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.active { display: flex; }
+        }
+
+        /* Typography Adjustments */
+        p {
+            line-height: 1.6;
+            font-size: 17px;
+            max-width: 800px;
+            color: var(--muted);
         }
 
         h1{
             margin:0;
-            font-size: clamp(40px, 7vw, 72px);
-            letter-spacing: 0.6px;
-            font-weight:300;
-            font-family: 'Times New Roman', Times, serif;
-            color:var(--text);
-            text-shadow: 8px 60px 90px #0a1e3c;
-            text-decoration-color:blue;
-            text-decoration: overline;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(32px, 5vw, 50px);
+            text-shadow: none;
+            text-decoration: none;
+            letter-spacing: -1px;
         }
         h2{
             margin:0;
@@ -165,13 +412,13 @@
         }
 
         h3{
-            margin:0;
-            letter-spacing: 1.9px;
-            font-weight:900;
-            color:var(--text);
-            text-shadow: 0 6px 30px rgba(10,30,60,0.45);
+            margin:0 0 10px 0;
+            font-family: 'Dancing Script', cursive;
+            letter-spacing: 1px;
+            font-weight:600;
+            text-transform: none;
+            font-size: 20px;
             color: #ffffff;
-            
         }
 
         .cta{
@@ -204,7 +451,7 @@
 .video-avatar {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 24px;
   overflow: hidden;
   border: 3px solid var(--accent);
   box-shadow: 0 20px 50px rgba(17, 80, 214, 0.48);
@@ -216,45 +463,40 @@
   object-fit: cover;
 }
 
-
-        /* footer glass (new) */
         footer.site-footer{
-            position:fixed;
-            left:50%;
-            bottom:0px;
-            transform:translateX(-50%);
+            margin-top: 50px;
             z-index:3;
-            width:min(920px, 94%);
-            max-width:1100px;
-            background: var(--glass-bg);
-            padding:12px 18px;
+            width: 100%;
+            padding:40px 0;
             display:flex;
             justify-content:center;
             align-items:center;
-            box-shadow: 0 8px 24px rgba(2,8,23,0.6);
-            border: 1px solid rgba(255,255,255,0.06);
-            backdrop-filter: blur(8px) saturate(120%);
-            -webkit-backdrop-filter: blur(8px) saturate(120%);
-            color: rgba(255,255,255,0.72);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--muted);
             font-size:13px;
-            gap:8px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
 
-        }
-        footer.site-footer p{
-            margin:0;
-            text-align:center;
-            line-height:3.2;
-        }
-        @media (max-width:520px){
-            footer.site-footer{ bottom:14px; padding:10px 12px; font-size:12px; width:calc(100% - 28px); }
-            .glass{ padding:28px;
-                 border-radius:14px;
-                 }
-        }
     </style>
 </head>
 <body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="logo" style="width:60px; height:60px; font-size:12px; margin: 0 auto;">ROASOD</div>
+            <div class="progress-bar-wrap">
+                <div id="progress-fill"></div>
+            </div>
+            <div id="progress-text">INITIALIZING 0%</div>
+        </div>
+    </div>
+
+    <div id="cursor"></div>
+    <div id="nav-overlay"></div>
+    <button id="back-to-top" aria-label="Back to Top">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+        </svg>
+    </button>
 
     <div class="bg" aria-hidden="true">
         <div class="blob b1"></div>
@@ -262,44 +504,175 @@
         <div class="blob b3"></div>
     </div>
 
+    <nav class="top-nav">
+        <div class="logo" style="width:50px; height:50px; font-size:10px;">ROASOD owner</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+    </nav>
+
     <div class="wrap">
-        <section class="glass" role="region" aria-labelledby="site-title">
-      <div class="video-avatar">
-  <video src="WhatsApp Video 2025-10-15 at 14.57.49_e974754c.mp4" autoplay muted loop playsinline></video>
-</div>
+        <section class="glass reveal-hidden" role="region" aria-labelledby="site-title">
+            <div class="video-avatar">
+                <video src="WhatsApp Video 2026-04-10 at 3.22.54 PM.mp4" autoplay muted loop playsinline preload="metadata" poster="avatar-poster.jpg"></video>
+            </div>
+            <h3>Pappi_Ceecee</h3>
+            <h1>Tshabalala Raycee</h1>
+            <p>
+                I specialise in building high-performance websites, secure backend APIs,
+                and scalable hosting solutions. My work blends clean design, strong
+                engineering, and business-focused thinking.
+            </p>
+        </section>
 
-      <p>
-        Hey , Im Tshabalala Raycee , I specialise in building high-performance websites, secure backend APIs,
-        and scalable hosting solutions. My work blends clean design, strong
-        engineering, and business-focused thinking.
-      </p>
-           </section>
+            <section class="glass reveal-hidden" id="about">
+                <h3>About Me</h3>
+                <p style="font-size: 15px;">
+                    Turning complex ideas into elegant digital experiences. I specialize in responsive business websites and scalable backend systems.
+                </p>
+            </section>
+            
+            <section class="glass reveal-hidden" id="skills">
+                <h3>Expertise</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><strong>UI/UX</strong></div>
+                    <div class="skill-item"><strong>Backend</strong></div>
+                    <div class="skill-item"><strong>API Security</strong></div>
+                    <div class="skill-item"><strong>Cloud</strong></div>
+                </div>
+            </section>
 
-    <!-- ABOUT -->
-    <section class="glass">
-      <h2>About Me</h2>
-      <p>
-        As a passionate developer, I specialize in turning complex ideas into elegant digital experiences. My expertise covers a wide range, including responsive business websites, scalable B2B SaaS platforms, and robust backend systems. Driven by a love for coding, I also enjoy exploring creative projects like AI-powered tools and interactive web games. I am always looking for opportunities to collaborate on innovative and challenging work.
-      </p>
-    </section>
+        <!-- CONTACT --> 
+        <section class="glass reveal-hidden" id="contact">
+            <h2>Let’s Work Together</h2>
+            <p>Ready to start your next high-performance digital project?</p>
+            <a href="mailto:rayceeblaccreedtshabalala@gmail.com" style="text-decoration: none;">
+                <button class="cta">Get In Touch</button> 
+            </a>
+        </section>
 
-          <!-- CONTACT -->
-    <section class="contact-card glass" id="contact">
-      <h2>Let’s Work Together</h2>
-      <p>Have a project or idea? Let’s create something professional? </p>
-      <a href="mailto:rayceeblaccreedtshabalala@gmail.com">
-        <button class="cta">Contact Me</button> 
-      </a>
-    </section>
-
-    <!-- Profile Card -->
-    <div class="about-profile glass" style="padding: 20px; width: auto; min-width: 200px;">
-      <strong><a>THE END.</a></strong>
-    </div>
+        <div class="about-profile glass reveal-hidden" style="padding: 20px; border-radius: 40px; width: fit-content;">
+            <span style="letter-spacing: 5px; font-size: 12px; font-weight: 800; opacity: 0.5;">End.</span>
+        </div>
     </div>
     
-    <footer>
+    <footer class="site-footer">
       &copy; 2026 ROASOD-Websites.
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loading Screen Logic
+            const loader = document.getElementById('loader');
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        loader.style.visibility = 'hidden';
+                    }, 500);
+                }
+                progressFill.style.width = `${progress}%`;
+                progressText.innerText = `INITIALIZING ${Math.floor(progress)}%`;
+            }, 150);
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navOverlay = document.getElementById('nav-overlay');
+            
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+            });
+
+            // Close menu when clicking overlay
+            navOverlay.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                });
+            });
+
+            const sections = document.querySelectorAll('.glass');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target); // Stop observing once revealed
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+
+            sections.forEach(section => observer.observe(section));
+
+            // Subtle Parallax effect for background blobs
+            const blobs = document.querySelectorAll('.blob');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                blobs.forEach((blob, index) => {
+                    const speed = (index + 1) * 0.1; 
+                    blob.style.setProperty('--parallax-y', `${scrollY * speed * -1}px`);
+                });
+            }, { passive: true });
+
+            // Back to Top Logic
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }, { passive: true });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Magnetic Cursor and Glass Card Effect
+            const cursor = document.getElementById('cursor');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            sections.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    cursor.classList.add('active');
+                    card.style.transform = 'scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('active');
+                    card.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
